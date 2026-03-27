@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Clock, Mail, BarChart3 } from "lucide-react";
 
 const tutorials = [
@@ -54,36 +53,26 @@ const tutorials = [
 
 const TutorialsSection = () => {
   return (
-    <section id="tutorials" className="py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <span className="text-xs font-body font-medium tracking-widest uppercase text-accent mb-4 block">
+    <section id="tutorials" className="py-24 md:py-32 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="mb-16">
+          <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent mb-4 block">
             Tutorials
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">
+          <h2 className="font-display text-3xl md:text-5xl font-black mb-3 tracking-tight">
             先看两条主线
           </h2>
-          <p className="text-muted-foreground font-body">
+          <p className="text-muted-foreground font-body text-lg">
             EDM 和 CRO 都先从系列开头进入
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {tutorials.map((t, i) => (
-            <motion.a
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-xl overflow-hidden">
+          {tutorials.map((t) => (
+            <a
               key={t.id}
               href="#"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20"
+              className="group bg-background p-7 hover:bg-card transition-colors duration-200"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
@@ -115,16 +104,11 @@ const TutorialsSection = () => {
                 </span>
                 <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
               </div>
-            </motion.a>
+            </a>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center"
-        >
+        <div className="mt-10 text-center">
           <a
             href="#"
             className="inline-flex items-center gap-2 text-sm font-body font-medium text-foreground hover:text-accent transition-colors group"
@@ -132,7 +116,7 @@ const TutorialsSection = () => {
             全部教程
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
