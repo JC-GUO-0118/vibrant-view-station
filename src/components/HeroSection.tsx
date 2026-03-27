@@ -1,33 +1,10 @@
 import { ArrowRight } from "lucide-react";
-
-const heroCards = [
-  {
-    status: "系列进行中",
-    title: "EDM 自动化从零搭建",
-    tags: ["#邮件营销", "#Klaviyo"],
-    bg: "bg-[hsl(270_40%_85%)]",
-  },
-  {
-    status: "持续更新",
-    title: "CRO 转化率诊断与优化",
-    tags: ["#转化率", "#数据分析"],
-    bg: "bg-[hsl(340_40%_82%)]",
-  },
-  {
-    status: "已上线",
-    title: "Shopify 结账流程优化",
-    tags: ["#Shopify", "#结账页"],
-    bg: "bg-[hsl(36_50%_80%)]",
-  },
-  {
-    status: "即将上线",
-    title: "买家旅程邮件序列",
-    tags: ["#自动化", "#复购"],
-    bg: "bg-[hsl(180_30%_82%)]",
-  },
-];
+import { getRotatedFeatureCards, toAbsoluteUrl } from "@/data/siteContent";
 
 const HeroSection = () => {
+  const featureCards = getRotatedFeatureCards();
+  const scrollingCards = [...featureCards, ...featureCards];
+
   return (
     <section className="min-h-[90vh] relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full">
@@ -64,32 +41,37 @@ const HeroSection = () => {
           </div>
 
           {/* Right: Scrolling cards column */}
-          <div className="hidden md:flex flex-col gap-3 py-6 overflow-y-auto max-h-[90vh] scrollbar-hide">
-            {heroCards.map((card) => (
-              <div
-                key={card.title}
-                className={`${card.bg} rounded-2xl p-5 min-h-[180px] flex flex-col justify-between`}
-              >
-                <div>
-                  <span className="text-xs font-body font-semibold uppercase tracking-wider text-foreground/60">
-                    • {card.status}
-                  </span>
-                  <h3 className="font-display text-lg font-bold mt-3 leading-snug text-foreground/90">
-                    {card.title}
-                  </h3>
-                </div>
-                <div className="flex gap-2 mt-4">
-                  {card.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-body text-foreground/70 bg-background/40 backdrop-blur-sm px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+          <div className="hidden md:block py-6">
+            <div className="hero-sidebar-mask relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/35 p-3 shadow-card">
+              <div className="animate-vertical-marquee flex flex-col gap-3 will-change-transform motion-reduce:animate-none">
+                {scrollingCards.map((card, index) => (
+                  <a
+                    key={`${card.slug}-${index}`}
+                    href={toAbsoluteUrl(card.path)}
+                    className={`${card.bgClass} rounded-2xl p-5 min-h-[184px] flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1`}
+                  >
+                    <div>
+                      <span className="text-xs font-body font-semibold uppercase tracking-wider text-foreground/60">
+                        • {card.status}
+                      </span>
+                      <h3 className="font-display text-lg font-bold mt-3 leading-snug text-foreground/90">
+                        {card.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {card.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-body text-foreground/70 bg-background/45 backdrop-blur-sm px-3 py-1 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </a>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

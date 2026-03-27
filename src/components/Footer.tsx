@@ -1,3 +1,5 @@
+import { contactLinks } from "@/data/siteContent";
+
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
@@ -31,8 +33,8 @@ const Footer = () => {
               联系
             </h4>
             <div className="flex flex-col gap-2.5">
-              <a href="#" className="text-sm font-body text-foreground hover:text-accent transition-colors">小红书</a>
-              <a href="#" className="text-sm font-body text-foreground hover:text-accent transition-colors">联系入口</a>
+              <a href={contactLinks.contactHub} className="text-sm font-body text-foreground hover:text-accent transition-colors">联系与更新</a>
+              <a href={contactLinks.resources} className="text-sm font-body text-foreground hover:text-accent transition-colors">资源入口</a>
             </div>
           </div>
 
@@ -46,7 +48,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-border">
           <p className="text-xs font-body text-muted-foreground">
-            © 2025 JC 的增长笔记
+            © 2026 JC 的增长笔记
           </p>
         </div>
       </div>

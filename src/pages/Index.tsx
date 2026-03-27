@@ -6,6 +6,7 @@ import TutorialsSection from "@/components/TutorialsSection";
 import ResourcesSection from "@/components/ResourcesSection";
 import MarqueeSection from "@/components/MarqueeSection";
 import TwoColumnCTA from "@/components/TwoColumnCTA";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <ResourcesSection />
       <MarqueeSection />
       <TwoColumnCTA />
+      <ContactSection />
       <Footer />
     </div>
   );

@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { contactLinks } from "@/data/siteContent";
 
 const TwoColumnCTA = () => {
   return (
@@ -32,7 +33,7 @@ const TwoColumnCTA = () => {
             如果你是从小红书或其他平台过来的，先看内容，再通过联系入口对接后续沟通。
           </p>
           <a
-            href="#contact"
+            href={contactLinks.contactHub}
             className="inline-flex items-center gap-2 bg-foreground/80 text-background font-body font-medium text-sm px-7 py-3.5 rounded-full hover:opacity-90 transition-opacity"
           >
             查看联系入口

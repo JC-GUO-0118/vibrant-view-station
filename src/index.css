@@ -96,6 +96,10 @@
     font-family: var(--font-body);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
@@ -135,5 +139,33 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  .hero-sidebar-mask {
+    height: min(78vh, 760px);
+  }
+
+  .animate-vertical-marquee {
+    animation: vertical-marquee 36s linear infinite;
+  }
+
+  .hero-sidebar-mask:hover .animate-vertical-marquee {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes vertical-marquee {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-50% - 0.75rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-vertical-marquee {
+    animation: none;
   }
 }
