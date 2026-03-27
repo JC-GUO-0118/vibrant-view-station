@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, FileText, CheckSquare, Layers, Map, Wrench, FlaskConical } from "lucide-react";
 
 const resources = [
@@ -12,33 +11,23 @@ const resources = [
 
 const ResourcesSection = () => {
   return (
-    <section id="resources" className="py-24 md:py-32 bg-secondary/50">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <span className="text-xs font-body font-medium tracking-widest uppercase text-accent mb-4 block">
+    <section id="resources" className="py-24 md:py-32 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="mb-16">
+          <span className="text-xs font-body font-semibold tracking-widest uppercase text-accent mb-4 block">
             Resources
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-3">
+          <h2 className="font-display text-3xl md:text-5xl font-black mb-3 tracking-tight">
             精选资源
           </h2>
-          <p className="text-muted-foreground font-body">框架、清单与模板</p>
-        </motion.div>
+          <p className="text-muted-foreground font-body text-lg">框架、清单与模板</p>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {resources.map((r, i) => (
-            <motion.div
+          {resources.map((r) => (
+            <div
               key={r.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group bg-background rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border"
+              className="group bg-card rounded-xl p-6 border border-border hover:border-accent/30 transition-all duration-200"
             >
               <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
                 <r.icon className="w-5 h-5 text-accent" />
@@ -48,16 +37,11 @@ const ResourcesSection = () => {
                 {r.desc}
               </p>
               <span className="text-xs font-body text-accent font-medium">完整版即将开放</span>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center"
-        >
+        <div className="mt-10 text-center">
           <a
             href="#"
             className="inline-flex items-center gap-2 text-sm font-body font-medium text-foreground hover:text-accent transition-colors group"
@@ -65,7 +49,7 @@ const ResourcesSection = () => {
             进入资源页
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
